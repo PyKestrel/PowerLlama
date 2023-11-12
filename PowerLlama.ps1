@@ -318,7 +318,7 @@ function Install-OllamaModel {
     .PARAMETER URI
         Properly Formmated URI Like "https://{IP OR DOMAIN_NAME}:{PORT}"
     .PARAMETER Name
-        Name Of The Model As A String Like "mario"
+        Name Of The Model In The Follow Format "<namespace>/<model>:<tag>"
     .PARAMETER AllowInsecure
         Allow Insecure Connections ("true"||"false")
     .PARAMETER Stream
