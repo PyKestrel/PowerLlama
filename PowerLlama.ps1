@@ -1,20 +1,3 @@
-<#
-.SYNOPSIS
-    A short one-line action-based description, e.g. 'Tests if a function is valid'
-.DESCRIPTION
-    A longer description of the function, its purpose, common use cases, etc.
-.NOTES
-    Information or caveats about the function e.g. 'This function is not supported in Linux'
-.LINK
-    Specify a URI to a help page, this will show when Get-Help -Online is used.
-.EXAMPLE
-    Test-MyTestFunction -Verbose
-    Explanation of the function or its result. You can include multiple examples with additional .EXAMPLE lines
-#>
-
-
-
-
 function New-OllamaCompletion {
     <#
     .SYNOPSIS
@@ -205,6 +188,18 @@ function Get-OllamaModels {
 }
 
 function Show-OllamaModel {
+    <#
+    .SYNOPSIS
+        Get Details About A Model, Including Its Modelfile, Template, Parameters, License & System Prompt
+    .PARAMETER URI
+        Properly Formmated URI Like "https://{IP OR DOMAIN_NAME}:{PORT}"
+    .PARAMETER Name
+        The Name Of The Model As A String Like "mario"
+    .EXAMPLE
+
+    .LINK
+        https://github.com/jmorganca/ollama/blob/main/docs/api.md#show-model-information
+    #>
     [CmdletBinding()]
     param (
         [Parameter(mandatory = $true)]
@@ -231,6 +226,22 @@ function Show-OllamaModel {
 }
 
 function Copy-OllamaModel {
+    <#
+    .SYNOPSIS
+        Copy A Model By Creating Another From An Existing Model.
+    .PARAMETER URI
+        Properly Formmated URI Like "https://{IP OR DOMAIN_NAME}:{PORT}"
+    .PARAMETER Source
+        Source Name Of The Model As A String Like "mario"
+    .PARAMETER Destination
+        Destination Name Of The Model As A String Like "mario2"
+    .EXAMPLE
+
+    .LINK
+        https://github.com/jmorganca/ollama/blob/main/docs/api.md#copy-a-model
+    .OUTPUTS
+        Status Code Of Request
+    #>
     [CmdletBinding()]
     param (
         [Parameter(mandatory = $true)]
@@ -261,6 +272,20 @@ function Copy-OllamaModel {
 }
 
 function Remove-OllamaModel {
+    <#
+    .SYNOPSIS
+        Delete An Existing Model.
+    .PARAMETER URI
+        Properly Formmated URI Like "https://{IP OR DOMAIN_NAME}:{PORT}"
+    .PARAMETER Name
+        Name Of The Model As A String Like "mario"
+    .EXAMPLE
+
+    .LINK
+        https://github.com/jmorganca/ollama/blob/main/docs/api.md#delete-a-model
+    .OUTPUTS
+        Status Code Of Request
+    #>
     [CmdletBinding()]
     param (
         [Parameter(mandatory = $true)]
@@ -287,6 +312,22 @@ function Remove-OllamaModel {
 }
 
 function Install-OllamaModel {
+    <#
+    .SYNOPSIS
+        Download A Model From The Ollama Library.
+    .PARAMETER URI
+        Properly Formmated URI Like "https://{IP OR DOMAIN_NAME}:{PORT}"
+    .PARAMETER Name
+        Name Of The Model As A String Like "mario"
+    .PARAMETER AllowInsecure
+        Allow Insecure Connections ("true"||"false")
+    .PARAMETER Stream
+        If "false" The Response Will Be Returned As A Single Response Object, Rather Than A Stream Of Objects
+    .EXAMPLE
+
+    .LINK
+        https://github.com/jmorganca/ollama/blob/main/docs/api.md#pull-a-model
+    #>
     [CmdletBinding()]
     param (
         [Parameter(mandatory = $true)]
@@ -334,6 +375,22 @@ function Install-OllamaModel {
 }
 
 function New-OllamaModel {
+    <#
+    .SYNOPSIS
+        Upload A Model To The Ollama Library. (Requires registering for ollama.ai and adding a public key first.)
+    .PARAMETER URI
+        Properly Formmated URI Like "https://{IP OR DOMAIN_NAME}:{PORT}"
+    .PARAMETER Name
+        Name Of The Model As A String Like "mario"
+    .PARAMETER AllowInsecure
+        Allow Insecure Connections ("true"||"false")
+    .PARAMETER Stream
+        If "false" The Response Will Be Returned As A Single Response Object, Rather Than A Stream Of Objects
+    .EXAMPLE
+
+    .LINK
+        https://github.com/jmorganca/ollama/blob/main/docs/api.md#push-a-model
+    #>
     [CmdletBinding()]
     param (
         [Parameter(mandatory = $true)]
@@ -379,8 +436,3 @@ function New-OllamaModel {
         }
     }
 }
-
-# Private Functions
-
-New-OllamaCompletion -URI "http://10.1.0.42:11434" -Model "llama2" -Format json -Prompt "Why is the sky blue in less than 2 sentences?" -Stream "false"
-Pause
