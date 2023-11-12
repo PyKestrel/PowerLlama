@@ -2,6 +2,16 @@
 
 Ollama API Wrapper In PowerShell
 
+## Functions
+
+- [New-OllamaCompletion](#new-ollamacompletion)
+- [Get-OllamaModels](#get-ollamamodels)
+- [Show-OllamaModel](#show-ollamamodel)
+- [Copy-OllamaModel](#copy-ollamamodel)
+- [Remove-OllamaModel](#remove-ollamamodel)
+- [Install-OllamaModel](#install-ollamamodel)
+- [New-OllamaModel](#new-ollamamodel)
+
 # New-OllamaCompletion
 
 ## SYNOPSIS
